@@ -1,0 +1,123 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root { --frame: 500px; }
+
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+body { background: #d9dee4; color: #1c1f26; font-family: var(--font-anuphan), sans-serif; }
+
+/* คอลัมน์ mobile-first — จัดกลางบนจอใหญ่ */
+.frame {
+  max-width: var(--frame);
+  margin-inline: auto;
+  background: #eceef1;
+  box-shadow: 0 0 0 1px #cfd5dc, 0 30px 80px -30px rgba(28, 31, 38, .35);
+}
+
+.eyebrow { font-size: .68rem; letter-spacing: .28em; text-transform: uppercase; font-weight: 600; color: #22304a; }
+.brandmark { font-family: var(--font-bodoni), serif; letter-spacing: .14em; }
+.display { font-family: var(--font-bodoni), serif; }
+
+.hairline { height: 1px; background: #d5dae0; }
+
+/* ===== Mock frame + inline art ===== */
+.mock {
+  position: relative; overflow: hidden; background: #e2e6ea;
+  border: 1px solid #d5dae0; color: #7b828b;
+  background-image:
+    repeating-linear-gradient(45deg, rgba(34, 48, 74, .05) 0 1px, transparent 1px 11px),
+    repeating-linear-gradient(-45deg, rgba(34, 48, 74, .035) 0 1px, transparent 1px 11px);
+  display: flex; align-items: center; justify-content: center; text-align: center;
+}
+.mock-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1; display: block; }
+.mock .mock-inner { padding: 1.25rem; position: relative; z-index: 2; }
+.mock .tag {
+  position: absolute; top: .55rem; left: .55rem; z-index: 2; font-size: .55rem; letter-spacing: .18em;
+  text-transform: uppercase; font-weight: 600; color: #22304a;
+  background: rgba(255, 255, 255, .85); border: 1px solid #d5dae0; padding: .2rem .45rem;
+}
+.mock .sample {
+  position: absolute; bottom: .55rem; right: .55rem; z-index: 2; font-size: .55rem; letter-spacing: .14em;
+  text-transform: uppercase; font-weight: 600; color: #fff; background: rgba(28, 31, 38, .62); padding: .2rem .5rem;
+}
+.mock .cap { font-size: .72rem; line-height: 1.35; max-width: 15rem; margin: 0 auto; }
+
+/* ===== Hero press micro-interaction ===== */
+.wrinkle::after {
+  content: ""; position: absolute; inset: 0; pointer-events: none; z-index: 2;
+  background:
+    repeating-linear-gradient(115deg, rgba(28, 31, 38, .10) 0 2px, transparent 2px 7px),
+    repeating-linear-gradient(70deg, rgba(28, 31, 38, .07) 0 1px, transparent 1px 9px);
+  mix-blend-mode: multiply; opacity: 0; animation: press 3.4s ease-in-out .3s 1 both;
+}
+@keyframes press { 0% { opacity: .9 } 55% { opacity: .9 } 100% { opacity: 0 } }
+.press-badge { z-index: 3; animation: badgeIn .6s ease 2.9s both; }
+@keyframes badgeIn { from { opacity: 0; transform: translateY(6px) } to { opacity: 1; transform: none } }
+
+/* ===== Reveal on scroll ===== */
+.reveal { opacity: 0; transform: translateY(18px); transition: opacity .7s ease, transform .7s ease; }
+.reveal.in { opacity: 1; transform: none; }
+
+/* ===== Size pills ===== */
+.size-pill {
+  min-width: 2.1rem; height: 2.1rem; display: inline-flex; align-items: center; justify-content: center;
+  border: 1px solid #d5dae0; background: #fff; font-size: .8rem; font-weight: 500; color: #1c1f26;
+  cursor: pointer; transition: .15s; user-select: none;
+}
+.size-pill:hover { border-color: #22304a; }
+.size-pill.active { background: #22304a; border-color: #22304a; color: #fff; }
+
+/* ===== Checkbox box + inputs (modal) ===== */
+.box {
+  width: 1.15rem; height: 1.15rem; border: 1.5px solid #b9c0c8; background: #fff; color: #fff;
+  display: inline-flex; align-items: center; justify-content: center; flex: none; transition: .15s;
+}
+.box svg { opacity: 0; transition: .15s; }
+.box.on { background: #22304a; border-color: #22304a; }
+.box.on svg { opacity: 1; }
+
+.fld { width: 100%; height: 2.75rem; padding: 0 .75rem; border: 1px solid #d5dae0; background: #fff; font-size: 14px; outline: none; }
+.fld:focus { border-color: #22304a; }
+
+.prow .sizes { max-height: 0; overflow: hidden; opacity: .4; transition: max-height .25s ease, opacity .25s ease; }
+.prow.open .sizes { max-height: 60px; opacity: 1; }
+
+/* ===== Buttons ===== */
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: .5rem; font-weight: 600; letter-spacing: .01em; transition: transform .12s ease, background .2s ease; }
+.btn:active { transform: translateY(1px) scale(.995); }
+.btn-primary { background: #1c1f26; color: #fff; }
+.btn-primary:hover { background: #000; }
+.btn-amber { background: #cf8a2c; color: #1c1f26; }
+.btn-amber:hover { background: #bd7c22; }
+
+:focus-visible { outline: 2px solid #cf8a2c; outline-offset: 2px; }
+
+/* ===== Modal ===== */
+.modal-wrap { position: fixed; inset: 0; z-index: 60; }
+.modal-backdrop { position: absolute; inset: 0; background: rgba(20, 24, 32, .55); backdrop-filter: blur(2px); animation: fadeIn .25s ease both; }
+.modal-card {
+  position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%);
+  width: min(94vw, 460px); max-height: 92vh; overflow: auto; background: #fff; animation: cardIn .25s ease both;
+}
+@keyframes fadeIn { from { opacity: 0 } to { opacity: 1 } }
+@keyframes cardIn { from { opacity: 0; transform: translate(-50%, -46%) scale(.98) } to { opacity: 1; transform: translate(-50%, -50%) scale(1) } }
+
+/* ===== Sticky bottom bar ===== */
+.sticky-bar {
+  position: fixed; left: 50%; bottom: 0; transform: translateX(-50%) translateY(120%);
+  width: 100%; max-width: var(--frame); z-index: 50;
+  transition: transform .35s cubic-bezier(.22, 1, .36, 1); padding-bottom: env(safe-area-inset-bottom);
+}
+.sticky-bar.show { transform: translateX(-50%) translateY(0); }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .reveal { opacity: 1 !important; transform: none !important; }
+  .wrinkle::after, .press-badge { animation: none; }
+  .wrinkle::after { opacity: 0; }
+  .btn:active { transform: none; }
+}
+
+::-webkit-scrollbar { width: 9px; height: 9px; }
+::-webkit-scrollbar-thumb { background: #c2c8cf; }

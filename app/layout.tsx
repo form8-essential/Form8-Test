@@ -1,6 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import type { ReactNode } from "react";
-import { Anuphan, Bodoni_Moda } from "next/font/google";
+import { Anuphan, Prompt } from "next/font/google";
 import Pixels from "@/components/Pixels";
 import "./globals.css";
 
@@ -11,7 +11,9 @@ const anuphan = Anuphan({
   display: "swap",
 });
 
-const bodoni = Bodoni_Moda({
+// ฟอนต์คำอังกฤษเด่นๆ (wordmark, ราคา, "Easy Iron") — Prompt SemiBold
+// หมายเหตุ: ยังใช้ตัวแปร --font-bodoni ตามเดิมเพื่อไม่ต้องแก้ไฟล์อื่น
+const prompt = Prompt({
   subsets: ["latin"],
   weight: ["500", "600", "700"],
   style: ["normal", "italic"],
@@ -38,7 +40,7 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
-    <html lang="th" className={`${anuphan.variable} ${bodoni.variable}`}>
+    <html lang="th" className={`${anuphan.variable} ${prompt.variable}`}>
       <body>
         {children}
         <Pixels />

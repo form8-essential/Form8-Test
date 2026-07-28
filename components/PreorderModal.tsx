@@ -152,7 +152,7 @@ export default function PreorderModal({
                   type="text"
                   autoComplete="name"
                   className="fld"
-                  placeholder="เช่น คุณทัช"
+                  placeholder="เช่น สมชาย ใจดี"
                 />
               </Field>
               <Field label="เบอร์โทรศัพท์ (สำหรับแจ้งเตือน SMS)" required>
@@ -167,7 +167,7 @@ export default function PreorderModal({
                 />
               </Field>
               <Field label="Line ID" hint="(ถ้ามี)">
-                <input value={line} onChange={(e) => setLine(e.target.value)} type="text" className="fld" placeholder="@yourid" />
+                <input value={line} onChange={(e) => setLine(e.target.value)} type="text" className="fld" placeholder="Somchai1234" />
               </Field>
 
               <div>

@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useRef, useState, type ReactNode } from "react";
-import { PRODUCTS, SIZES, BUNDLE_PRICE, type LeadItem } from "@/lib/products";
+import { PRODUCTS, BUNDLE_PRICE, type LeadItem } from "@/lib/products";
 import { trackLead } from "@/lib/analytics";
 
 type Prefill = { productId?: string; size?: string } | null;
@@ -26,6 +26,10 @@ export default function PreorderModal({
   const [line, setLine] = useState("");
   const [selected, setSelected] = useState<Record<string, boolean>>({});
   const [sizeOf, setSizeOf] = useState<Record<string, string>>({});
+  const [bundleShirt, setBundleShirt] = useState("");
+  const [bundleShirtSize, setBundleShirtSize] = useState("");
+  const [bundlePants, setBundlePants] = useState("");
+  const [bundlePantsSize, setBundlePantsSize] = useState("");
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState("");
   const [success, setSuccess] = useState(false);
@@ -64,6 +68,10 @@ export default function PreorderModal({
     [selected]
   );
 
+  const shirts = PRODUCTS.filter((p) => p.id.startsWith("shirt"));
+  const pants = PRODUCTS.filter((p) => p.id.startsWith("pants"));
+  const sizesOfId = (id: string) => PRODUCTS.find((p) => p.id === id)?.sizes ?? [];
+
   async function submit() {
     setError("");
     if (!name.trim()) return setError("กรุณากรอกชื่อของคุณ");
@@ -77,7 +85,14 @@ export default function PreorderModal({
       if (!sizeOf[p.id]) return setError(`กรุณาเลือกไซส์ของ "${p.th}"`);
       items.push({ id: p.id, name: p.th, size: sizeOf[p.id] });
     }
-    if (selected["bundle"]) items.push({ id: "bundle", name: "Bundle Set", size: "-" });
+    if (selected["bundle"]) {
+      if (!bundleShirt || !bundleShirtSize) return setError("Bundle: กรุณาเลือกเสื้อเชิ้ตและไซส์");
+      if (!bundlePants || !bundlePantsSize) return setError("Bundle: กรุณาเลือกกางเกงและไซส์");
+      const sName = PRODUCTS.find((p) => p.id === bundleShirt)?.th ?? bundleShirt;
+      const pName = PRODUCTS.find((p) => p.id === bundlePants)?.th ?? bundlePants;
+      items.push({ id: bundleShirt, name: `${sName} [Bundle]`, size: bundleShirtSize });
+      items.push({ id: bundlePants, name: `${pName} [Bundle]`, size: bundlePantsSize });
+    }
 
     const summary = items.map((i) => (i.size === "-" ? i.name : `${i.name} (${i.size})`)).join(", ");
     const payload = { name: name.trim(), phone: digits, line: line.trim(), items, summary, source: "landing" };
@@ -93,7 +108,7 @@ export default function PreorderModal({
       if (!res.ok || !data.ok) throw new Error(data.error || "ส่งไม่สำเร็จ");
 
       trackLead({
-        value: 690,
+        value: selected["bundle"] ? BUNDLE_PRICE : 690,
         currency: "THB",
         products: items.map((i) => i.id).join("|"),
         sizes: items.map((i) => i.size).join("|"),
@@ -200,17 +215,82 @@ export default function PreorderModal({
                   ))}
 
                   {/* Bundle */}
-                  <div className="prow relative border-2 border-navy px-3 py-2.5" style={{ background: "rgba(34,48,74,.05)" }}>
+                  <div className="relative border-2 border-navy px-3 py-2.5" style={{ background: "rgba(34,48,74,.05)" }}>
                     <label className="flex items-center justify-between gap-2.5 cursor-pointer">
                       <span className="flex items-center gap-2.5">
                         <input type="checkbox" checked={!!selected["bundle"]} onChange={() => toggle("bundle")} className="peer sr-only" />
                         <span className={`box ${selected["bundle"] ? "on" : ""}`}>
                           <CheckIcon />
                         </span>
-                        <span className="text-[13px] font-medium text-navy">รับเป็น Bundle Set (เสื้อ+กางเกง)</span>
+                        <span className="text-[13px] font-medium text-navy">รับเป็น Bundle Set (เสื้อ 1 + กางเกง 1)</span>
                       </span>
                       <span className="text-[13px] font-semibold text-navy">฿{BUNDLE_PRICE.toLocaleString()}</span>
                     </label>
+
+                    {selected["bundle"] && (
+                      <div className="mt-3 pt-3 border-t border-navy/20 space-y-3">
+                        {/* 1) เลือกเสื้อ */}
+                        <div>
+                          <p className="text-[12px] font-medium text-navy mb-1.5">1) เลือกเสื้อเชิ้ต 1 ตัว</p>
+                          <div className="flex flex-wrap gap-1.5">
+                            {shirts.map((s) => (
+                              <span
+                                key={s.id}
+                                onClick={() => setBundleShirt(s.id)}
+                                className={`size-pill px-3 ${bundleShirt === s.id ? "active" : ""}`}
+                                style={{ height: "1.9rem", fontSize: ".72rem" }}
+                              >
+                                {s.en}
+                              </span>
+                            ))}
+                          </div>
+                          {bundleShirt && (
+                            <div className="flex flex-wrap gap-1.5 mt-1.5">
+                              {sizesOfId(bundleShirt).map((sz) => (
+                                <span
+                                  key={sz}
+                                  onClick={() => setBundleShirtSize(sz)}
+                                  className={`size-pill ${bundleShirtSize === sz ? "active" : ""}`}
+                                  style={{ minWidth: "1.9rem", height: "1.9rem", fontSize: ".72rem" }}
+                                >
+                                  {sz}
+                                </span>
+                              ))}
+                            </div>
+                          )}
+                        </div>
+                        {/* 2) เลือกกางเกง */}
+                        <div>
+                          <p className="text-[12px] font-medium text-navy mb-1.5">2) เลือกกางเกงสแล็ค 1 ตัว</p>
+                          <div className="flex flex-wrap gap-1.5">
+                            {pants.map((s) => (
+                              <span
+                                key={s.id}
+                                onClick={() => setBundlePants(s.id)}
+                                className={`size-pill px-3 ${bundlePants === s.id ? "active" : ""}`}
+                                style={{ height: "1.9rem", fontSize: ".72rem" }}
+                              >
+                                {s.en}
+                              </span>
+                            ))}
+                          </div>
+                          {bundlePants && (
+                            <div className="flex flex-wrap gap-1.5 mt-1.5">
+                              {sizesOfId(bundlePants).map((sz) => (
+                                <span
+                                  key={sz}
+                                  onClick={() => setBundlePantsSize(sz)}
+                                  className={`size-pill ${bundlePantsSize === sz ? "active" : ""}`}
+                                  style={{ minWidth: "1.9rem", height: "1.9rem", fontSize: ".72rem" }}
+                                >
+                                  {sz}
+                                </span>
+                              ))}
+                            </div>
+                          )}
+                        </div>
+                      </div>
+                    )}
                   </div>
                 </div>
               </div>

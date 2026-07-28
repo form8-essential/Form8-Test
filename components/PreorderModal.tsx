@@ -120,7 +120,7 @@ export default function PreorderModal({
                 <h3 id="modalTitle" className="mt-1.5 text-[18px] font-semibold text-ink leading-snug">
                   ขอบคุณที่ให้ความสนใจ
                   <br />
-                  Essential Workwear!
+                  FORM8!
                 </h3>
               </div>
               <button

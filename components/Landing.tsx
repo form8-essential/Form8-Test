@@ -3,16 +3,6 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import { PRODUCTS, SIZES, BUNDLE_PRICE } from "@/lib/products";
 import { trackBuyIntent } from "@/lib/analytics";
-import {
-  SHARED_DEFS,
-  HERO_SVG,
-  WRINKLE_SVG,
-  FABRIC_SVG,
-  WARDROBE_SVG,
-  LIFESTYLE_SVG,
-  garmentSVG,
-} from "@/lib/art";
-import Art from "./Art";
 import PreorderModal from "./PreorderModal";
 
 type Prefill = { productId?: string; size?: string } | null;
@@ -25,32 +15,34 @@ export default function Landing() {
   const heroRef = useRef<HTMLElement>(null);
   const rootRef = useRef<HTMLDivElement>(null);
 
-  const openModal = useCallback((source: string, productId?: string) => {
-    trackBuyIntent(source, productId ?? null);
-    setPrefill(productId ? { productId, size: cardSize[productId] } : null);
-    setModalOpen(true);
-  }, [cardSize]);
+  const openModal = useCallback(
+    (source: string, productId?: string) => {
+      trackBuyIntent(source, productId ?? null);
+      setPrefill(productId ? { productId, size: cardSize[productId] } : null);
+      setModalOpen(true);
+    },
+    [cardSize]
+  );
 
   const closeModal = useCallback(() => setModalOpen(false), []);
 
-  // sticky bar โผล่หลังเลื่อนพ้น hero
   useEffect(() => {
     const hero = heroRef.current;
     if (!hero) return;
-    const io = new IntersectionObserver(
-      ([e]) => setStickyShown(!e.isIntersecting),
-      { threshold: 0, rootMargin: "-120px 0px 0px 0px" }
-    );
+    const io = new IntersectionObserver(([e]) => setStickyShown(!e.isIntersecting), {
+      threshold: 0,
+      rootMargin: "-120px 0px 0px 0px",
+    });
     io.observe(hero);
     return () => io.disconnect();
   }, []);
 
-  // reveal on scroll
   useEffect(() => {
     const els = rootRef.current?.querySelectorAll<HTMLElement>(".reveal");
     if (!els) return;
     const io = new IntersectionObserver(
-      (entries) => entries.forEach((en) => en.isIntersecting && (en.target.classList.add("in"), io.unobserve(en.target))),
+      (entries) =>
+        entries.forEach((en) => en.isIntersecting && (en.target.classList.add("in"), io.unobserve(en.target))),
       { threshold: 0.12 }
     );
     els.forEach((el: HTMLElement) => io.observe(el));
@@ -61,14 +53,27 @@ export default function Landing() {
 
   return (
     <div className="frame relative" ref={rootRef}>
-      <Art html={SHARED_DEFS} />
-
       {/* HEADER */}
       <header className="sticky top-0 z-40 bg-steam/90 backdrop-blur border-b border-line">
         <div className="flex items-center justify-between px-5 h-14">
-          <div className="leading-none">
-            <div className="brandmark text-[15px] font-semibold text-ink">ESSENTIAL WORKWEAR</div>
-            <div className="text-[9px] tracking-[.25em] uppercase text-muted mt-[3px]">Easy Iron Series</div>
+          <div className="flex items-center gap-2.5">
+            <img
+              src="/logo.png"
+              alt="FORM8"
+              className="h-9 w-auto"
+              onError={(e) => {
+                const t = e.currentTarget;
+                t.style.display = "none";
+                const f = t.parentElement?.querySelector(".logo-fallback") as HTMLElement | null;
+                if (f) f.style.display = "inline";
+              }}
+            />
+            <span className="logo-fallback brandmark text-[18px] font-semibold text-ink" style={{ display: "none" }}>
+              FORM8
+            </span>
+            <span className="text-[9px] tracking-[.22em] uppercase text-muted leading-tight border-l border-line pl-2.5">
+              Everyday<br />Smartwear
+            </span>
           </div>
           <div className="text-[10px] tracking-[.18em] uppercase text-navy border border-navy/40 px-2 py-1">Pre-order</div>
         </div>
@@ -90,8 +95,7 @@ export default function Landing() {
         </p>
 
         <div className="reveal mt-6 mock wrinkle aspect-[4/5] w-full">
-          <Art html={HERO_SVG} />
-          <span className="tag on-img">ภาพตัวอย่าง · Hero</span>
+          <img src="/hero.jpg" alt="นายแบบใส่ชุด Easy Iron" className="mock-img" />
           <div className="press-badge absolute bottom-3 right-3 bg-ink text-white text-[11px] font-medium px-2.5 py-1 flex items-center gap-1.5">
             <span className="w-1.5 h-1.5 rounded-full bg-amber" /> รอยยับหายไป
           </div>
@@ -100,7 +104,10 @@ export default function Landing() {
         <button onClick={() => openModal("hero")} className="btn btn-primary reveal mt-6 w-full h-14 text-[15px]">
           เลือกเซ็ตพรีออเดอร์ · รับส่วนลด 20%
         </button>
-        <button onClick={scrollToCollection} className="reveal mt-3 text-center w-full text-[12px] text-muted tracking-wide underline-offset-2 hover:underline">
+        <button
+          onClick={scrollToCollection}
+          className="reveal mt-3 text-center w-full text-[12px] text-muted tracking-wide underline-offset-2 hover:underline"
+        >
           ดูสินค้าทั้ง 4 ชิ้น · ล็อตแรกจำกัด <span className="text-ink font-semibold">200 ชุด</span>
         </button>
       </section>
@@ -119,7 +126,10 @@ export default function Landing() {
         <ul className="mt-7 space-y-5">
           {FEATURES.map((f) => (
             <li key={f.title} className="reveal flex gap-4">
-              <span className="flex-none w-11 h-11 rounded-full bg-navy/10 text-navy flex items-center justify-center" dangerouslySetInnerHTML={{ __html: f.icon }} />
+              <span
+                className="flex-none w-11 h-11 rounded-full bg-navy/10 text-navy flex items-center justify-center"
+                dangerouslySetInnerHTML={{ __html: f.icon }}
+              />
               <div>
                 <h3 className="text-[15px] font-semibold text-ink">{f.title}</h3>
                 <p className="text-[13.5px] text-muted leading-relaxed mt-1">{f.body}</p>
@@ -131,27 +141,19 @@ export default function Landing() {
         {/* Before / After */}
         <div className="reveal mt-8 grid grid-cols-2 gap-px bg-line border border-line">
           <div className="mock aspect-[3/4]">
-            <Art html={WRINKLE_SVG} />
+            <img src="/before.jpg" alt="เสื้อทั่วไปยับ" className="mock-img" />
             <span className="tag on-img">Before</span>
-            <div className="mock-inner">
-              <p className="cap text-muted">เสื้อทั่วไป<br />ยับย่นตรงข้อพับ</p>
-            </div>
           </div>
           <div className="mock aspect-[3/4]">
-            <Art html={FABRIC_SVG} />
+            <img src="/after.jpg" alt="เสื้อของแบรนด์เรียบเนี้ยบ" className="mock-img" />
             <span className="tag on-img" style={{ color: "#cf8a2c" }}>After</span>
-            <div className="mock-inner">
-              <p className="cap text-navy font-medium">เสื้อของแบรนด์<br />เรียบเนี้ยบ</p>
-            </div>
           </div>
         </div>
-        <p className="reveal text-center text-[11.5px] text-muted mt-2">ภาพ Split-screen เปรียบเทียบ ก่อน / หลัง</p>
+        <p className="reveal text-center text-[11.5px] text-muted mt-2">ภาพเปรียบเทียบ ก่อน / หลัง</p>
 
         {/* Fabric close-up */}
         <div className="reveal mt-5 mock aspect-[16/9]">
-          <Art html={FABRIC_SVG} />
-          <span className="tag on-img">ภาพตัวอย่าง · Fabric</span>
-          <span className="sample">แทนที่ด้วยรูปผ้าจริง</span>
+          <img src="/fabric.jpg" alt="เนื้อผ้า Easy Iron" className="mock-img" />
         </div>
       </section>
 
@@ -161,14 +163,14 @@ export default function Landing() {
       <section id="collection" className="px-5 py-10 bg-steam">
         <p className="eyebrow reveal">The Collection</p>
         <h2 className="reveal mt-3 text-[21px] leading-snug font-semibold text-ink">
-          The Essential Workwear Collection
-          <span className="text-muted font-normal text-[15px] block mt-1">4 ชิ้นหลัก · มิกซ์แอนด์แมตช์ได้มากกว่า 4 ลุคตลอดสัปดาห์</span>
+          The FORM8 Collection
+          <span className="text-muted font-normal text-[15px] block mt-1">
+            4 ชิ้นหลัก · มิกซ์แอนด์แมตช์ได้มากกว่า 4 ลุคตลอดสัปดาห์
+          </span>
         </h2>
 
         <div className="reveal mt-5 mock aspect-[16/10]">
-          <Art html={WARDROBE_SVG} />
-          <span className="tag on-img">ภาพตัวอย่าง · Capsule</span>
-          <span className="sample">แทนที่ด้วยเซ็ตจริง</span>
+          <img src="/capsule.jpg" alt="เซ็ต Capsule Wardrobe" className="mock-img" />
         </div>
 
         {/* Product grid */}
@@ -176,9 +178,7 @@ export default function Landing() {
           {PRODUCTS.map((p) => (
             <div key={p.id} className="reveal bg-paper border border-line p-3">
               <div className="mock aspect-[3/4]">
-                <Art html={garmentSVG(p.id)} />
-                <span className="tag on-img">{p.en}</span>
-                <span className="sample">ภาพตัวอย่าง</span>
+                <img src={`/${p.id}.jpg`} alt={p.en} className="mock-img" />
               </div>
               <h3 className="mt-2.5 text-[13px] font-medium leading-snug text-ink">{p.th}</h3>
               <div className="mt-1 flex items-baseline gap-1.5">
@@ -231,7 +231,7 @@ export default function Landing() {
         <h2 className="reveal mt-3 text-[21px] leading-snug font-semibold">
           ทำไมคนทำงานถึงเลือก
           <br />
-          Essential Workwear
+          FORM8
         </h2>
 
         <div className="reveal mt-7 grid grid-cols-3 gap-px bg-white/10 border border-white/10">
@@ -247,8 +247,7 @@ export default function Landing() {
         </p>
 
         <div className="reveal mt-6 mock aspect-[16/10]" style={{ borderColor: "rgba(255,255,255,.12)" }}>
-          <Art html={LIFESTYLE_SVG} />
-          <span className="tag on-img">ภาพตัวอย่าง · Lifestyle</span>
+          <img src="/lifestyle.jpg" alt="ลุคคนทำงาน" className="mock-img" />
         </div>
 
         <figure className="reveal mt-6 border-l-2 border-amber pl-4">
@@ -264,9 +263,9 @@ export default function Landing() {
 
       {/* FOOTER */}
       <footer className="px-5 py-8 bg-navy text-white/70">
-        <div className="brandmark text-[13px] font-semibold text-white tracking-[.14em]">ESSENTIAL WORKWEAR</div>
+        <div className="brandmark text-[13px] font-semibold text-white tracking-[.14em]">FORM8</div>
         <p className="text-[12px] mt-2 leading-relaxed">พรีออเดอร์ล็อตแรกจำนวนจำกัด 200 ชุด · คาดพร้อมจัดส่งภายใน 2–3 สัปดาห์</p>
-        <p className="text-[11px] mt-4 text-white/40">© 2025 Essential Workwear. Easy Iron Series.</p>
+        <p className="text-[11px] mt-4 text-white/40">© 2025 FORM8 · Easy Iron Series.</p>
         <div className="h-16" />
       </footer>
 

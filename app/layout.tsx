@@ -20,11 +20,11 @@ const bodoni = Bodoni_Moda({
 });
 
 export const metadata: Metadata = {
-  title: "Essential Workwear — Easy Iron | สั่งจองพรีออเดอร์ ลด 20%",
+  title: "FORM8 — Easy Iron | สั่งจองพรีออเดอร์ ลด 20%",
   description:
     "เสื้อเชิ้ต & กางเกงสแล็ค Easy Iron สะบัดตาก รีดแป๊บเดียวจบ ลุคเนี้ยบตลอดวัน สำหรับคนทำงานยุคใหม่ พรีออเดอร์ล็อตแรกลด 20%",
   openGraph: {
-    title: "Essential Workwear — Easy Iron",
+    title: "FORM8 — Easy Iron | Everyday Smartwear",
     description: "สะบัดตาก รีดแป๊บเดียวจบ ลุคเนี้ยบตลอด 8 ชั่วโมง · พรีออเดอร์ลด 20%",
     type: "website",
   },

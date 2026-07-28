@@ -185,8 +185,8 @@ export default function Landing() {
                 <span className="text-[15px] font-semibold text-navy">฿{p.price}</span>
                 <span className="text-[11px] text-muted line-through">฿{p.was}</span>
               </div>
-              <div className="mt-2 flex gap-1">
-                {SIZES.map((s) => (
+              <div className="mt-2 flex flex-wrap gap-1">
+                {p.sizes.map((s) => (
                   <span
                     key={s}
                     onClick={() => setCardSize((c) => ({ ...c, [p.id]: s }))}

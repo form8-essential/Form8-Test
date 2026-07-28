@@ -81,7 +81,7 @@ body { background: #d9dee4; color: #1c1f26; font-family: var(--font-anuphan), sa
 .fld:focus { border-color: #22304a; }
 
 .prow .sizes { max-height: 0; overflow: hidden; opacity: .4; transition: max-height .25s ease, opacity .25s ease; }
-.prow.open .sizes { max-height: 60px; opacity: 1; }
+.prow.open .sizes { max-height: 90px; opacity: 1; }
 
 /* ===== Buttons ===== */
 .btn { display: inline-flex; align-items: center; justify-content: center; gap: .5rem; font-weight: 600; letter-spacing: .01em; transition: transform .12s ease, background .2s ease; }

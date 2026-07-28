@@ -184,8 +184,8 @@ export default function PreorderModal({
                         </span>
                         <span className="text-[13px] text-ink">{p.th}</span>
                       </label>
-                      <div className="sizes pl-8 pt-2 flex gap-1.5">
-                        {SIZES.map((s) => (
+                      <div className="sizes pl-8 pt-2 flex flex-wrap gap-1.5">
+                        {p.sizes.map((s) => (
                           <span
                             key={s}
                             onClick={() => pickSize(p.id, s)}

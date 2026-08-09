@@ -108,7 +108,7 @@ export default function Landing() {
           onClick={scrollToCollection}
           className="reveal mt-3 text-center w-full text-[12px] text-muted tracking-wide underline-offset-2 hover:underline"
         >
-          ดูสินค้าทั้ง 4 ชิ้น · ล็อตแรกจำกัด <span className="text-ink font-semibold">200 ชุด</span>
+          ดูสินค้าทั้ง 6 ไอเท็ม · ล็อตแรกจำกัด <span className="text-ink font-semibold">200 ชุด</span>
         </button>
       </section>
 
@@ -165,7 +165,7 @@ export default function Landing() {
         <h2 className="reveal mt-3 text-[21px] leading-snug font-semibold text-ink">
           The FORM8 Collection
           <span className="text-muted font-normal text-[15px] block mt-1">
-            4 ชิ้นหลัก · มิกซ์แอนด์แมตช์ได้มากกว่า 4 ลุคตลอดสัปดาห์
+            6 ไอเท็ม · มิกซ์แอนด์แมตช์ได้ไม่จำกัด ตลอดทั้งสัปดาห์
           </span>
         </h2>
 

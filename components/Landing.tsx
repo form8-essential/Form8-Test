@@ -94,9 +94,19 @@ export default function Landing() {
           ออกแบบมาเพื่อคนทำงานยุคใหม่ — ผ้าคืนตัวไว ไม่ยับง่าย แม้นั่งทำงานหรือเดินทางทั้งวัน
         </p>
 
-        <div className="reveal mt-6 mock wrinkle aspect-[4/5] w-full">
+        <div
+          className="reveal mt-6 mock wrinkle aspect-[4/5] w-full cursor-pointer"
+          role="button"
+          tabIndex={0}
+          onClick={() => openModal("hero-image")}
+          onKeyDown={(e) => (e.key === "Enter" || e.key === " ") && openModal("hero-image")}
+        >
           <img src="/hero.jpg" alt="นายแบบใส่ชุด Easy Iron" className="mock-img" />
-          <div className="press-badge absolute bottom-3 right-3 bg-ink text-white text-[11px] font-medium px-2.5 py-1 flex items-center gap-1.5">
+          <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-ink/70 to-transparent pointer-events-none" />
+          <div className="absolute bottom-3 left-3 bg-amber text-ink text-[12px] font-semibold px-3 py-1.5 flex items-center gap-1.5">
+            แตะเพื่อสั่งจอง · ลด 20%
+          </div>
+          <div className="press-badge absolute top-3 right-3 bg-ink text-white text-[11px] font-medium px-2.5 py-1 flex items-center gap-1.5">
             <span className="w-1.5 h-1.5 rounded-full bg-amber" /> รอยยับหายไป
           </div>
         </div>
@@ -177,7 +187,10 @@ export default function Landing() {
         <div className="mt-7 grid grid-cols-2 gap-3.5">
           {PRODUCTS.map((p) => (
             <div key={p.id} className="reveal bg-paper border border-line p-3">
-              <div className="mock aspect-[3/4]">
+              <div
+                className="mock aspect-[3/4] cursor-pointer"
+                onClick={() => openModal("card-image", p.id)}
+              >
                 <img src={`/${p.id}.jpg`} alt={p.en} className="mock-img" />
               </div>
               <h3 className="mt-2.5 text-[13px] font-medium leading-snug text-ink">{p.th}</h3>

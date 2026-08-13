@@ -145,7 +145,7 @@ export default function Landing() {
           ผมทำเสื้อตัวนี้ขึ้นมา เพราะผมไม่ชอบการยืนรีดผ้า 20 นาทีทุกเช้า
         </h2>
 
-        <div className="reveal mt-4 space-y-4 text-[14.5px] leading-relaxed text-ink/90">
+        <div className="reveal mt-4 space-y-4 text-[16px] leading-relaxed text-ink/90">
           <p>
             สวัสดีครับ ผมทัช (สุทัศน์) Co-Founder ของ FORM8 — ปกติผมชอบใส่เสื้อเชิ้ตไปทำงานมาก
             เพราะช่วยเสริมบุคลิกให้ดูเนี้ยบและน่าเชื่อถือ แต่สิ่งเดียวที่ผมเจอทุกเช้าและไม่ชอบเลยคือ “การรีดผ้า”

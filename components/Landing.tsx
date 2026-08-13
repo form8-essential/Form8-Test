@@ -124,6 +124,122 @@ export default function Landing() {
 
       <div className="hairline" />
 
+      {/* SECTION — DEMO VIDEO (คลิปพิสูจน์ผ้า) */}
+      <section className="px-5 py-10 bg-ink text-white">
+        <p className="eyebrow reveal" style={{ color: "#cf8a2c" }}>See It In Action</p>
+        <h2 className="reveal mt-3 text-[21px] leading-snug font-semibold">
+          ขยำ → สะบัด → รอยยับหายไปเอง
+        </h2>
+        <p className="reveal mt-2 text-[13.5px] text-white/60">ดูผ้า Easy Iron คืนตัวจริง — ไม่ต้องรีด</p>
+
+        <div className="reveal mt-5 mx-auto max-w-[300px]">
+          <div className="mock aspect-[9/16] w-full" style={{ borderColor: "rgba(255,255,255,.12)" }}>
+            <video
+              className="mock-img"
+              src="/demo.mp4"
+              poster="/hero.jpg"
+              autoPlay
+              muted
+              loop
+              playsInline
+              preload="metadata"
+            />
+          </div>
+        </div>
+
+        <button
+          onClick={() => openModal("demo-video")}
+          className="btn btn-amber reveal mt-5 w-full h-14 text-[15px]"
+        >
+          สั่งจองเลย · รับส่วนลด 20%
+        </button>
+      </section>
+
+      {/* SECTION — FOUNDER STORY */}
+      <section className="px-5 py-11 bg-paper">
+        <div className="reveal flex items-center gap-3">
+          <img
+            src="/founder.jpg"
+            alt="สุทัศน์ ผู้ก่อตั้ง FORM8"
+            className="w-14 h-14 rounded-full object-cover border border-line flex-none"
+            onError={(e) => {
+              e.currentTarget.style.display = "none";
+            }}
+          />
+          <div>
+            <p className="eyebrow">From The Founder</p>
+            <p className="text-[13px] text-muted mt-0.5">สุทัศน์ (ทัช) · Co-Founder, FORM8</p>
+          </div>
+        </div>
+
+        <h2 className="reveal mt-5 text-[21px] leading-snug font-semibold text-ink">
+          ผมทำเสื้อตัวนี้ขึ้นมา เพราะผมไม่ชอบการยืนรีดผ้า 20 นาทีทุกเช้า
+        </h2>
+
+        <div className="reveal mt-4 space-y-4 text-[14.5px] leading-relaxed text-ink/90">
+          <p>
+            สวัสดีครับ ผมทัช (สุทัศน์) Co-Founder ของ FORM8 — ปกติผมชอบใส่เสื้อเชิ้ตไปทำงานมาก
+            เพราะช่วยเสริมบุคลิกให้ดูเนี้ยบและน่าเชื่อถือ แต่สิ่งเดียวที่ผมเจอทุกเช้าและไม่ชอบเลยคือ “การรีดผ้า”
+          </p>
+          <p>
+            ผมลองมาหลายยี่ห้อ ทั้งถูกและแพง บางตัวราคาสูงมากแต่เนื้อผ้ากลับรีดยาก
+            นั่งรีดตัวเดียว 20–30 นาทีก็ยังไม่เรียบ เสียเวลาช่วงเช้าไปโดยเปล่าประโยชน์
+          </p>
+        </div>
+
+        <blockquote className="reveal mt-5 border-l-2 border-amber pl-4 text-[16px] leading-relaxed font-medium text-navy">
+          “รีดจบใน 1 นาที แล้วเอาเวลา 19 นาทีที่เหลือไปกินกาแฟหรือทำอย่างอื่นดีกว่า”
+        </blockquote>
+
+        <div className="reveal mt-5 space-y-4 text-[14.5px] leading-relaxed text-ink/90">
+          <p>
+            จากประสบการณ์ที่เคยทำงานในอุตสาหกรรมผลิตเสื้อผ้าส่งออกให้แบรนด์ญี่ปุ่นระดับโลก
+            ผมรู้ดีว่านวัตกรรมเนื้อผ้าทุกวันนี้ไปไกลมาก — เลยอยากเอาความรู้และมาตรฐานตรงนั้น
+            มาทำเสื้อเชิ้ตเกรดแบรนด์นำเข้าดี ๆ ขึ้นมาสักตัวด้วยตัวเอง
+          </p>
+          <p>
+            ตอนเริ่มต้น ผมยังไม่รู้ว่าจะมีคนที่คิดเหมือนผมมากน้อยแค่ไหน เลยยังไม่กล้าผลิตเยอะ
+            ทำให้ต้นทุนต่อตัวสูงกว่าการผลิตจำนวนมาก — แต่ผมพยายามตัดทุกอย่างที่ไม่จำเป็นออก
+            เพื่อให้ได้ราคาที่ดีที่สุดเท่าที่จะทำได้ ในแบบที่คุณจับต้องได้จริง
+          </p>
+          <p>
+            ล็อตแรกผมตั้งใจทำออกมา <span className="font-semibold text-ink">2 สีเบสิก</span> ที่ผู้ชายทุกคนควรมีติดตู้:
+          </p>
+          <ul className="space-y-1.5 pl-1">
+            <li>
+              <span className="font-medium text-ink">⚪ Pure White</span> — ทรงสวย ผ้าเรียบ รีดง่าย ยับยาก ใส่ได้ทุกวัน
+            </li>
+            <li>
+              <span className="font-medium text-ink">🔵 Navy Blue</span> — เนี้ยบ ดูเท่แบบมีมิติ ไว้ใส่สลับไม่ให้น่าเบื่อ
+            </li>
+          </ul>
+          <p>
+            ถ้าคุณเจอปัญหาเรื่องรีดผ้าแบบเดียวกับผม รบกวนตอบแบบสอบถามสั้น ๆ ด้านล่างว่าอยากได้สีไหน ไซส์อะไร
+            ผมจะได้วางแผนสัดส่วนการสั่งผลิตกับโรงงานได้อย่างถูกต้องครับ
+          </p>
+        </div>
+
+        {/* คำสัญญา */}
+        <div className="reveal mt-5 bg-steam border border-line p-4">
+          <p className="text-[14px] leading-relaxed text-ink">
+            ผมมี <span className="font-semibold text-navy">คูปองส่วนลด 20%</span> ให้เป็นการขอบคุณ
+            ใช้ได้จริงเมื่อสินค้าผลิตเสร็จ และถ้าถึงตอนนั้นคุณเปลี่ยนใจไม่ซื้อก็ไม่เป็นไรเลยครับ
+          </p>
+          <p className="text-[14px] leading-relaxed text-ink mt-3">
+            เราจะ <span className="font-semibold">ไม่โทรตื๊อแบบคอลเซ็นเตอร์</span> — ผมจะติดต่อคุณทางไลน์หรือเบอร์
+            <span className="font-semibold"> เพียงครั้งเดียว</span> ถ้าไม่สนใจ จะไม่รบกวนอีก
+          </p>
+          <p className="text-[13px] text-muted mt-3 italic">— สัญญาด้วยเกียรติของผม, สุทัศน์ (ทัช)</p>
+        </div>
+
+        <button
+          onClick={() => openModal("founder-story")}
+          className="btn btn-primary reveal mt-6 w-full h-14 text-[15px]"
+        >
+          ตอบแบบสอบถาม · รับคูปอง 20%
+        </button>
+      </section>
+
       {/* SECTION 2 — PAIN POINT & FEATURES */}
       <section className="px-5 py-10 bg-paper">
         <p className="eyebrow reveal">Fit &amp; Fabric</p>
@@ -262,16 +378,6 @@ export default function Landing() {
         <div className="reveal mt-6 mock aspect-[16/10]" style={{ borderColor: "rgba(255,255,255,.12)" }}>
           <img src="/lifestyle.jpg" alt="ลุคคนทำงาน" className="mock-img" />
         </div>
-
-        <figure className="reveal mt-6 border-l-2 border-amber pl-4">
-          <blockquote className="text-[15px] leading-relaxed text-white/90">
-            “ลองใส่ไปทำงานทั้งวัน นั่ง MRT ลุกนั่งบ่อยมาก พอกลับบ้านรอยยับตรงข้อพับแทบไม่มี ประทับใจมากครับ”
-          </blockquote>
-          <figcaption className="mt-3 text-[12.5px] text-white/60">
-            <span className="text-white font-medium">คุณทัช</span> · Business Development
-            <span className="block text-[10px] tracking-wider uppercase text-amber mt-1">Verified Tester</span>
-          </figcaption>
-        </figure>
       </section>
 
       {/* FOOTER */}
@@ -279,6 +385,9 @@ export default function Landing() {
         <div className="brandmark text-[13px] font-semibold text-white tracking-[.14em]">FORM8</div>
         <p className="text-[12px] mt-2 leading-relaxed">พรีออเดอร์ล็อตแรกจำนวนจำกัด 200 ชุด · คาดพร้อมจัดส่งภายใน 2–3 สัปดาห์</p>
         <p className="text-[11px] mt-4 text-white/40">© 2025 FORM8 · Easy Iron Series.</p>
+        <a href="/privacy" className="text-[11px] text-white/60 underline mt-2 inline-block">
+          นโยบายความเป็นส่วนตัว
+        </a>
         <div className="h-16" />
       </footer>
 

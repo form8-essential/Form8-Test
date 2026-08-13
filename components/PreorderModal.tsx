@@ -302,7 +302,14 @@ export default function PreorderModal({
               <button onClick={submit} disabled={submitting} className="btn btn-primary w-full h-13 py-4 text-[15px] disabled:opacity-60">
                 {submitting ? "กำลังบันทึก..." : "ยืนยันการจองสิทธิ์พรีออเดอร์"}
               </button>
-              <p className="text-center text-[11px] text-muted">การจองนี้ยังไม่มีการชำระเงิน · ทีมงานจะติดต่อกลับเพื่อยืนยัน</p>
+              <p className="text-center text-[11px] text-muted">
+                การจองนี้ยังไม่มีการชำระเงิน · ทีมงานจะติดต่อกลับเพื่อยืนยัน
+                <br />
+                การกดยืนยันถือว่ายอมรับ{" "}
+                <a href="/privacy" target="_blank" className="underline text-navy">
+                  นโยบายความเป็นส่วนตัว
+                </a>
+              </p>
             </div>
           </div>
         ) : (

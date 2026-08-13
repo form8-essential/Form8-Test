@@ -133,9 +133,9 @@ export default function Landing() {
         <p className="reveal mt-2 text-[13.5px] text-white/60">ดูผ้า Easy Iron คืนตัวจริง — ไม่ต้องรีด</p>
 
         <div className="reveal mt-5 mx-auto max-w-[300px]">
-          <div className="mock aspect-[9/16] w-full" style={{ borderColor: "rgba(255,255,255,.12)" }}>
+          <div className="relative aspect-[9/16] w-full rounded-xl overflow-hidden bg-black border border-white/10">
             <video
-              className="mock-img"
+              className="absolute inset-0 w-full h-full object-contain"
               src="/demo.mp4"
               poster="/hero.jpg"
               autoPlay
@@ -336,11 +336,11 @@ export default function Landing() {
         {/* Bundle */}
         <div className="reveal mt-4 bg-navy text-white p-5 relative overflow-hidden">
           <span className="absolute top-0 right-0 bg-amber text-ink text-[10px] font-bold tracking-wider uppercase px-2.5 py-1">คุ้มสุด</span>
-          <p className="eyebrow" style={{ color: "#cf8a2c" }}>Special Bundle Set</p>
-          <h3 className="mt-2 text-[17px] font-semibold leading-snug">เสื้อเชิ้ต 1 ตัว + กางเกงสแล็ค 1 ตัว</h3>
+          <p className="eyebrow" style={{ color: "#F59E0B" }}>Special Bundle Set</p>
+          <h3 className="mt-2 text-[17px] font-semibold leading-snug text-white">เสื้อเชิ้ต 1 ตัว + กางเกงสแล็ค 1 ตัว</h3>
           <div className="mt-3 flex items-baseline gap-3">
-            <span className="display text-[30px] font-semibold">฿{BUNDLE_PRICE.toLocaleString()}</span>
-            <span className="text-[12px] text-white/60">รวมส่งฟรีทั่วประเทศ</span>
+            <span className="display text-[30px] font-semibold text-white">฿{BUNDLE_PRICE.toLocaleString()}</span>
+            <span className="text-[12px] text-white/80">รวมส่งฟรีทั่วประเทศ</span>
           </div>
           <button onClick={() => openModal("bundle", "bundle")} className="btn btn-amber mt-4 w-full h-12 text-[14px]">
             สนใจเซ็ต Bundle · ส่งฟรี
@@ -366,8 +366,8 @@ export default function Landing() {
         <div className="reveal mt-7 grid grid-cols-3 gap-px bg-white/10 border border-white/10">
           {STATS.map((s) => (
             <div key={s.k} className="bg-ink px-3 py-5 text-center">
-              <div className="display text-[24px] font-semibold text-amber">{s.k}</div>
-              <p className="text-[11.5px] text-white/70 mt-1.5 leading-snug" dangerouslySetInnerHTML={{ __html: s.v }} />
+              <div className="display text-[24px] font-semibold" style={{ color: "#F59E0B" }}>{s.k}</div>
+              <p className="text-[11.5px] text-white/85 mt-1.5 leading-snug" dangerouslySetInnerHTML={{ __html: s.v }} />
             </div>
           ))}
         </div>
@@ -388,7 +388,7 @@ export default function Landing() {
         <a href="/privacy" className="text-[11px] text-white/60 underline mt-2 inline-block">
           นโยบายความเป็นส่วนตัว
         </a>
-        <div className="h-16" />
+        <div className="h-24" />
       </footer>
 
       {/* STICKY BAR */}

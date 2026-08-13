@@ -105,11 +105,16 @@ body { background: #d9dee4; color: #1c1f26; font-family: var(--font-anuphan), sa
 
 /* ===== Sticky bottom bar ===== */
 .sticky-bar {
-  position: fixed; left: 50%; bottom: 0; transform: translateX(-50%) translateY(120%);
-  width: 100%; max-width: var(--frame); z-index: 50;
-  transition: transform .35s cubic-bezier(.22, 1, .36, 1); padding-bottom: env(safe-area-inset-bottom);
+  position: fixed; left: 0; right: 0; bottom: 0; z-index: 50;
+  transform: translate3d(0, 110%, 0);
+  transition: transform .35s cubic-bezier(.22, 1, .36, 1);
+  padding-bottom: env(safe-area-inset-bottom);
+  will-change: transform;
+  -webkit-backface-visibility: hidden; backface-visibility: hidden;
+  pointer-events: none;
 }
-.sticky-bar.show { transform: translateX(-50%) translateY(0); }
+.sticky-bar.show { transform: translate3d(0, 0, 0); pointer-events: auto; }
+.sticky-bar > div { max-width: var(--frame); margin: 0 auto; }
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }

@@ -104,7 +104,7 @@ export default function Landing() {
           <img src="/hero.jpg" alt="นายแบบใส่ชุด Easy Iron" className="mock-img" />
           <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-ink/70 to-transparent pointer-events-none" />
           <div className="absolute bottom-3 left-3 bg-amber text-ink text-[12px] font-semibold px-3 py-1.5 flex items-center gap-1.5">
-            แตะเพื่อสั่งจอง · ลด 20%
+            แตะตอบแบบสอบถาม · รับส่วนลด 20%
           </div>
           <div className="press-badge absolute top-3 right-3 bg-ink text-white text-[11px] font-medium px-2.5 py-1 flex items-center gap-1.5">
             <span className="w-1.5 h-1.5 rounded-full bg-amber" /> รอยยับหายไป
@@ -112,7 +112,7 @@ export default function Landing() {
         </div>
 
         <button onClick={() => openModal("hero")} className="btn btn-primary reveal mt-6 w-full h-14 text-[15px]">
-          เลือกเซ็ตพรีออเดอร์ · รับส่วนลด 20%
+          ตอบแบบสอบถาม · รับสิทธิ์ส่วนลด 20%
         </button>
         <button
           onClick={scrollToCollection}
@@ -151,7 +151,7 @@ export default function Landing() {
           onClick={() => openModal("demo-video")}
           className="btn btn-amber reveal mt-5 w-full h-14 text-[15px]"
         >
-          สั่งจองเลย · รับส่วนลด 20%
+          ตอบแบบสอบถาม · รับสิทธิ์ส่วนลด 20%
         </button>
       </section>
 
@@ -160,7 +160,7 @@ export default function Landing() {
         <div className="reveal flex items-center gap-3">
           <img
             src="/founder.jpg"
-            alt="FORM8"
+            alt="สุทัศน์ ผู้ก่อตั้ง FORM8"
             className="w-14 h-14 rounded-full object-cover border border-line flex-none"
             onError={(e) => {
               e.currentTarget.style.display = "none";
@@ -173,7 +173,7 @@ export default function Landing() {
         </div>
 
         <h2 className="reveal mt-5 text-[21px] leading-snug font-semibold text-ink">
-          ผมทำเสื้อตัวนี้ขึ้นมา เพราะผมไม่ชอบการยืนรีดผ้า 20 นาทีทุกเช้า
+          ผมทำเสื้อตัวนี้ขึ้นมา เพราะผมเกลียดการยืนรีดผ้า 20 นาทีทุกเช้า
         </h2>
 
         <div className="reveal mt-4 space-y-4 text-[14.5px] leading-relaxed text-ink/90">
@@ -193,14 +193,14 @@ export default function Landing() {
 
         <div className="reveal mt-5 space-y-4 text-[14.5px] leading-relaxed text-ink/90">
           <p>
-            จากประสบการณ์ที่เคยทำงานในบริษัทผลิตเสื้อผ้าส่งออกให้แบรนด์ญี่ปุ่นระดับโลก
+            จากประสบการณ์ที่เคยทำงานในอุตสาหกรรมผลิตเสื้อผ้าส่งออกให้แบรนด์ญี่ปุ่นระดับโลก
             ผมรู้ดีว่านวัตกรรมเนื้อผ้าทุกวันนี้ไปไกลมาก — เลยอยากเอาความรู้และมาตรฐานตรงนั้น
             มาทำเสื้อเชิ้ตเกรดแบรนด์นำเข้าดี ๆ ขึ้นมาสักตัวด้วยตัวเอง
           </p>
           <p>
             ตอนเริ่มต้น ผมยังไม่รู้ว่าจะมีคนที่คิดเหมือนผมมากน้อยแค่ไหน เลยยังไม่กล้าผลิตเยอะ
-            ทำให้ต้นทุนต่อตัวสูงกว่าการผลิตจำนวนมากๆ — แต่ผมจะพยายามตัดค่าใช้จ่ายทุกอย่าง
-            ที่ไม่จำเป็นออก เพื่อให้ได้ราคาที่ดีที่สุดเท่าที่จะทำได้ ในแบบที่คุณจับต้องได้จริง
+            ทำให้ต้นทุนต่อตัวสูงกว่าการผลิตจำนวนมาก — แต่ผมพยายามตัดทุกอย่างที่ไม่จำเป็นออก
+            เพื่อให้ได้ราคาที่ดีที่สุดเท่าที่จะทำได้ ในแบบที่คุณจับต้องได้จริง
           </p>
           <p>
             ล็อตแรกผมตั้งใจทำออกมา <span className="font-semibold text-ink">2 สีเบสิก</span> ที่ผู้ชายทุกคนควรมีติดตู้:
@@ -215,7 +215,7 @@ export default function Landing() {
           </ul>
           <p>
             ถ้าคุณเจอปัญหาเรื่องรีดผ้าแบบเดียวกับผม รบกวนตอบแบบสอบถามสั้น ๆ ด้านล่างว่าอยากได้สีไหน ไซส์อะไร
-            เพื่อผมจะสามารถวางแผนจำนวนการสั่งผลิตกับโรงงานได้อย่างถูกต้องครับ
+            ผมจะได้วางแผนสัดส่วนการสั่งผลิตกับโรงงานได้อย่างถูกต้องครับ
           </p>
         </div>
 
@@ -327,7 +327,7 @@ export default function Landing() {
                 ))}
               </div>
               <button onClick={() => openModal("card", p.id)} className="btn btn-primary mt-2.5 w-full h-10 text-[13px]">
-                จอง
+                รับสิทธิ์ส่วนลด
               </button>
             </div>
           ))}
@@ -343,12 +343,12 @@ export default function Landing() {
             <span className="text-[12px] text-white/60">รวมส่งฟรีทั่วประเทศ</span>
           </div>
           <button onClick={() => openModal("bundle", "bundle")} className="btn btn-amber mt-4 w-full h-12 text-[14px]">
-            รับดีล Bundle · ส่งฟรี
+            สนใจเซ็ต Bundle · ส่งฟรี
           </button>
         </div>
 
         <button onClick={() => openModal("catalog")} className="btn btn-primary reveal mt-4 w-full h-14 text-[15px]">
-          สั่งจองสิทธิ์ · รับส่วนลด 20%
+          ตอบแบบสอบถาม · รับสิทธิ์ส่วนลด 20%
         </button>
       </section>
 
@@ -399,7 +399,7 @@ export default function Landing() {
             <span className="text-[14px] font-semibold leading-tight">ลด 20% · เหลือ ฿690</span>
           </div>
           <button onClick={() => openModal("sticky")} className="btn btn-amber px-5 text-[14px] rounded-none">
-            สั่งซื้อ / รับสิทธิ์
+            ตอบแบบสอบถาม
           </button>
         </div>
       </div>

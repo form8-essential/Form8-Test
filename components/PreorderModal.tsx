@@ -152,9 +152,9 @@ export default function PreorderModal({
             <div className="mx-5 mt-4 bg-steam border border-line p-3.5">
               <p className="text-[12.5px] leading-relaxed text-ink">
                 สินค้าล็อตแรกกำลังอยู่ในขั้นตอนการผลิตและตรวจรับคุณภาพอย่างพิถีพิถัน (
-                <span className="font-semibold">จำนวนจำกัด 200 ชุดแรก</span>) ลงชื่อจองสิทธิ์รับส่วนลดพิเศษ{" "}
+                <span className="font-semibold">จำนวนจำกัด 200 ชุดแรก</span>) ตอบแบบสอบถามสั้น ๆ เพื่อรับสิทธิ์ส่วนลดพิเศษ{" "}
                 <span className="text-navy font-semibold">20%</span> (เหลือ ฿690 จาก ฿890)
-                เราจะติดต่อกลับเพื่อยืนยันคำสั่งซื้อทันทีเมื่อสินค้าพร้อมจัดส่ง
+                เราจะส่งรหัสส่วนลดให้เมื่อสินค้าพร้อม โดยติดต่อผ่านไลน์หรือเบอร์เพียงครั้งเดียวเท่านั้น
               </p>
             </div>
 
@@ -300,10 +300,10 @@ export default function PreorderModal({
               )}
 
               <button onClick={submit} disabled={submitting} className="btn btn-primary w-full h-13 py-4 text-[15px] disabled:opacity-60">
-                {submitting ? "กำลังบันทึก..." : "ยืนยันการจองสิทธิ์พรีออเดอร์"}
+                {submitting ? "กำลังส่ง..." : "ส่งคำตอบ · รับสิทธิ์ส่วนลด 20%"}
               </button>
               <p className="text-center text-[11px] text-muted">
-                การจองนี้ยังไม่มีการชำระเงิน · ทีมงานจะติดต่อกลับเพื่อยืนยัน
+                การตอบแบบสอบถามนี้ไม่มีการชำระเงินและไม่มีข้อผูกมัดใด ๆ
                 <br />
                 การกดยืนยันถือว่ายอมรับ{" "}
                 <a href="/privacy" target="_blank" className="underline text-navy">

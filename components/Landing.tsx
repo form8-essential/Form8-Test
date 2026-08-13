@@ -156,7 +156,7 @@ export default function Landing() {
           </p>
         </div>
 
-        <blockquote className="reveal mt-5 border-l-2 border-amber pl-4 text-[16px] leading-relaxed font-medium text-navy">
+        <blockquote className="reveal mt-5 border-l-2 border-amber pl-4 text-[18px] leading-relaxed font-medium text-navy">
           “รีดจบใน 1 นาที แล้วเอาเวลา 19 นาทีที่เหลือไปกินกาแฟหรือทำอย่างอื่นดีกว่า”
         </blockquote>
 
@@ -190,7 +190,7 @@ export default function Landing() {
 
         {/* คำสัญญา */}
         <div className="reveal mt-5 bg-steam border border-line p-4">
-          <p className="text-[14px] leading-relaxed text-ink">
+          <p className="text-[15.5px] leading-relaxed text-ink">
             ผมมี <span className="font-semibold text-navy">คูปองส่วนลด 20%</span> ให้เป็นการขอบคุณ
             ใช้ได้จริงเมื่อสินค้าผลิตเสร็จ และถ้าถึงตอนนั้นคุณเปลี่ยนใจไม่ซื้อก็ไม่เป็นไรเลยครับ
           </p>

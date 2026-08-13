@@ -124,37 +124,6 @@ export default function Landing() {
 
       <div className="hairline" />
 
-      {/* SECTION — DEMO VIDEO (คลิปพิสูจน์ผ้า) */}
-      <section className="px-5 py-10 bg-ink text-white">
-        <p className="eyebrow reveal" style={{ color: "#cf8a2c" }}>See It In Action</p>
-        <h2 className="reveal mt-3 text-[21px] leading-snug font-semibold">
-          ขยำ → สะบัด → รอยยับหายไปเอง
-        </h2>
-        <p className="reveal mt-2 text-[13.5px] text-white/60">ดูผ้า Easy Iron คืนตัวจริง — ไม่ต้องรีด</p>
-
-        <div className="reveal mt-5 mx-auto max-w-[300px]">
-          <div className="relative aspect-[9/16] w-full rounded-xl overflow-hidden bg-black border border-white/10">
-            <video
-              className="absolute inset-0 w-full h-full object-contain"
-              src="/demo.mp4"
-              poster="/hero.jpg"
-              autoPlay
-              muted
-              loop
-              playsInline
-              preload="metadata"
-            />
-          </div>
-        </div>
-
-        <button
-          onClick={() => openModal("demo-video")}
-          className="btn btn-amber reveal mt-5 w-full h-14 text-[15px]"
-        >
-          ตอบแบบสอบถาม · รับสิทธิ์ส่วนลด 20%
-        </button>
-      </section>
-
       {/* SECTION — FOUNDER STORY */}
       <section className="px-5 py-11 bg-paper">
         <div className="reveal flex items-center gap-3">
@@ -173,7 +142,7 @@ export default function Landing() {
         </div>
 
         <h2 className="reveal mt-5 text-[21px] leading-snug font-semibold text-ink">
-          ผมทำเสื้อตัวนี้ขึ้นมา เพราะผมเกลียดการยืนรีดผ้า 20 นาทีทุกเช้า
+          ผมทำเสื้อตัวนี้ขึ้นมา เพราะผมไม่ชอบการยืนรีดผ้า 20 นาทีทุกเช้า
         </h2>
 
         <div className="reveal mt-4 space-y-4 text-[14.5px] leading-relaxed text-ink/90">
@@ -199,7 +168,7 @@ export default function Landing() {
           </p>
           <p>
             ตอนเริ่มต้น ผมยังไม่รู้ว่าจะมีคนที่คิดเหมือนผมมากน้อยแค่ไหน เลยยังไม่กล้าผลิตเยอะ
-            ทำให้ต้นทุนต่อตัวสูงกว่าการผลิตจำนวนมาก — แต่ผมพยายามตัดทุกอย่างที่ไม่จำเป็นออก
+            ทำให้ต้นทุนต่อตัวสูงกว่าการผลิตจำนวนมาก — แต่ผมจะพยายามตัดค่าใช้จ่ายทุกอย่างที่ไม่จำเป็นออก
             เพื่อให้ได้ราคาที่ดีที่สุดเท่าที่จะทำได้ ในแบบที่คุณจับต้องได้จริง
           </p>
           <p>

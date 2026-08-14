@@ -82,7 +82,7 @@ export default function Landing() {
       {/* SECTION 1 — HERO */}
       <section ref={heroRef} className="px-5 pt-8 pb-9 bg-steam">
         <p className="eyebrow reveal">Easy Iron Series · พรีออเดอร์ล็อตแรก</p>
-        <h1 className="reveal mt-3 text-[26px] leading-[1.28] font-semibold text-ink">
+        <h1 className="reveal mt-3 text-[29px] leading-[1.25] font-bold text-ink">
           เสื้อเชิ้ต &amp; กางเกงสแล็ค
           <span className="display italic font-semibold text-navy"> Easy&nbsp;Iron</span>
           <br />
@@ -145,7 +145,7 @@ export default function Landing() {
           ผมทำเสื้อตัวนี้ขึ้นมา เพราะผมไม่ชอบการยืนรีดผ้า 20 นาทีทุกเช้า
         </h2>
 
-        <div className="reveal mt-4 space-y-4 text-[16px] leading-relaxed text-ink/90">
+        <div className="reveal mt-4 space-y-4 text-[16px] leading-relaxed text-ink">
           <p>
             สวัสดีครับ ผมทัช (สุทัศน์) Co-Founder ของ FORM8 — ปกติผมชอบใส่เสื้อเชิ้ตไปทำงานมาก
             เพราะช่วยเสริมบุคลิกให้ดูเนี้ยบและน่าเชื่อถือ แต่สิ่งเดียวที่ผมเจอทุกเช้าและไม่ชอบเลยคือ “การรีดผ้า”
@@ -156,7 +156,7 @@ export default function Landing() {
           </p>
         </div>
 
-        <blockquote className="reveal mt-5 border-l-2 border-amber pl-4 text-[18px] leading-relaxed font-medium text-navy">
+        <blockquote className="reveal mt-5 border-l-2 border-amber pl-4 text-[18px] leading-snug font-semibold text-navy">
           “รีดจบใน 1 นาที แล้วเอาเวลา 19 นาทีที่เหลือไปกินกาแฟหรือทำอย่างอื่นดีกว่า”
         </blockquote>
 
@@ -167,9 +167,9 @@ export default function Landing() {
             มาทำเสื้อเชิ้ตคุณภาพเดียวกับแบรนด์ต่างประเทศดี ๆ ขึ้นมาสักตัวด้วยตัวเอง
           </p>
           <p>
-            ตอนเริ่มต้น ผมยังไม่รู้ว่าจะมีคนที่คิดเหมือนผมมากน้อยแค่ไหน เลยยังไม่กล้าผลิตเยอะ
-            ทำให้ต้นทุนต่อตัวสูงกว่าการผลิตจำนวนมาก — แต่ผมจะพยายามตัดค่าใช้จ่ายทุกอย่างที่ไม่จำเป็นออก
-            เพื่อให้ได้ราคาที่ดีที่สุดเท่าที่จะทำได้ ในแบบที่คุณจับต้องได้จริง
+            ตอนเริ่มต้นนี้ ผมยังไม่รู้ว่าจะมีคนที่คิดเหมือนผมมากน้อยแค่ไหน เลยยังไม่กล้าผลิตเยอะ
+            ทำให้ต้นทุนต่อตัวค่อนข้างสูงกว่าแบรนด์ใหญ่ที่ผลิตจำนวนมากๆ — แต่ผมจะพยายาม
+            ตัดค่าใช้จ่ายทุกอย่างที่ไม่จำเป็นออกเพื่อให้ได้ราคาที่ดีที่สุดเท่าที่จะทำได้ ในแบบที่คุณจับต้องได้จริง
           </p>
           <p>
             ล็อตแรกผมตั้งใจทำออกมา <span className="font-semibold text-ink">2 สีเบสิก</span> ที่ผู้ชายทุกคนควรมีติดตู้:
@@ -183,8 +183,8 @@ export default function Landing() {
             </li>
           </ul>
           <p>
-            ถ้าคุณเจอปัญหาเรื่องรีดผ้าแบบเดียวกับผม รบกวนตอบแบบสอบถามสั้น ๆ ด้านล่างว่าอยากได้สีไหน ไซส์อะไร
-            ผมจะได้วางแผนสัดส่วนการสั่งผลิตกับโรงงานได้อย่างถูกต้องครับ
+            ถ้าคุณเคยเจอปัญหาเรื่องรีดผ้าแบบเดียวกับผม ผมอยากรบกวนช่วยตอบแบบสอบถามสั้นๆ ด้านล่างว่า
+            ถ้าคุณจะซื้อคุณอยากได้สีไหน ไซส์อะไร เพื่อผมจะได้วางแผนจำนวนสั่งผลิตกับโรงงานได้อย่างถูกต้องครับ
           </p>
         </div>
 
@@ -192,13 +192,13 @@ export default function Landing() {
         <div className="reveal mt-5 bg-steam border border-line p-4">
           <p className="text-[15.5px] leading-relaxed text-ink">
             ผมมี <span className="font-semibold text-navy">คูปองส่วนลด 20%</span> ให้เป็นการขอบคุณ
-            ใช้ได้จริงเมื่อสินค้าผลิตเสร็จ และถ้าถึงตอนนั้นคุณเปลี่ยนใจไม่ซื้อก็ไม่เป็นไรเลยครับ
+            ใช้ได้จริงเมื่อสินค้าผลิตเสร็จ และถ้าถึงตอนนั้นคุณเปลี่ยนใจไม่ซื้อ ก็ไม่เป็นไรเลยครับ
           </p>
           <p className="text-[14px] leading-relaxed text-ink mt-3">
-            เราจะ <span className="font-semibold">ไม่โทรตื๊อแบบคอลเซ็นเตอร์</span> — ผมจะติดต่อคุณทางไลน์หรือเบอร์
-            <span className="font-semibold"> เพียงครั้งเดียว</span> ถ้าไม่สนใจ จะไม่รบกวนอีก
+            ผมสัญญาด้วยเกียรติของผมว่าเราจะ <span className="font-semibold">ไม่โทรตื๊อแบบคอลเซ็นเตอร์</span> — ผมจะติดต่อคุณทางไลน์หรือSMS
+            <span className="font-semibold"> เพียงครั้งเดียว</span> ถ้าคุณไม่สนใจ เราก็จะไม่รบกวนอีก
           </p>
-          <p className="text-[13px] text-muted mt-3 italic">— สัญญาด้วยเกียรติของผม, สุทัศน์ (ทัช)</p>
+          <p className="text-[14px] text-muted mt-3 italic">— สุทัศน์(ทัช) Co-Founder</p>
         </div>
 
         <button
